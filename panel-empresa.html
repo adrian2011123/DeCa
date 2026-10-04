@@ -1,0 +1,381 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Creador DeCA - Panel de empresa / autónomo</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, sans-serif;
+        }
+
+        body {
+            background-color: #ffffff;
+            color: #333333;
+            min-height: 100vh;
+        }
+
+        /* Top Brand Header */
+        .brand-header {
+            width: 100%;
+            padding: 0.5rem 1.5rem;
+            font-size: 0.8rem;
+            font-weight: bold;
+            color: #000000;
+            border-bottom: 1px solid #e2e8f0;
+        }
+
+        /* Main Workspace Container */
+        .container {
+            padding: 1.5rem;
+            width: 100%;
+            max-width: 100%;
+        }
+
+        /* Panel Title */
+        .panel-title {
+            font-size: 1.6rem;
+            font-weight: 500;
+            margin-bottom: 1.2rem;
+            color: #000000;
+        }
+
+        /* Green Alert Box (Código de invitación) */
+        .alert-box {
+            background-color: #edfaf2;
+            border-left: 4px solid #00695c;
+            padding: 1rem;
+            margin-bottom: 1.5rem;
+            border-radius: 4px;
+        }
+
+        .alert-box .label-text {
+            font-size: 0.75rem;
+            color: #4a5568;
+            margin-bottom: 0.2rem;
+        }
+
+        .alert-box .code-text {
+            font-size: 1.3rem;
+            font-weight: bold;
+            color: #00695c;
+            letter-spacing: 1px;
+        }
+
+        .alert-box .info-subtext {
+            font-size: 0.75rem;
+            color: #718096;
+            margin-top: 0.3rem;
+        }
+
+        /* Section Styling */
+        .section-container {
+            margin-bottom: 2rem;
+        }
+
+        .section-title {
+            font-size: 1rem;
+            font-weight: bold;
+            color: #000000;
+            margin-bottom: 0.3rem;
+        }
+
+        .section-subtitle {
+            font-size: 0.75rem;
+            color: #718096;
+            margin-bottom: 1rem;
+        }
+
+        /* Form Inputs Multi-Column Row */
+        .input-row {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.8rem;
+            align-items: flex-end;
+            margin-bottom: 1.5rem;
+        }
+
+        .input-group {
+            flex: 1;
+            min-width: 150px;
+        }
+
+        .input-group label {
+            display: block;
+            font-size: 0.75rem;
+            color: #4a5568;
+            margin-bottom: 0.3rem;
+        }
+
+        .input-group input, .input-group select {
+            width: 100%;
+            padding: 0.5rem;
+            border: 1px solid #cbd5e0;
+            border-radius: 4px;
+            font-size: 0.85rem;
+            background-color: #ffffff;
+        }
+
+        .input-group input:focus, .input-group select:focus {
+            outline: none;
+            border-color: #00695c;
+        }
+
+        /* Buttons */
+        .btn-teal {
+            background-color: #00695c;
+            color: #ffffff;
+            border: none;
+            padding: 0.55rem 1.2rem;
+            font-size: 0.85rem;
+            border-radius: 4px;
+            cursor: pointer;
+            white-space: nowrap;
+        }
+
+        .btn-teal:hover {
+            background-color: #004d40;
+        }
+
+        /* Cards Layout for Rates */
+        .cards-row {
+            display: flex;
+            gap: 1rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .data-card {
+            border: 1px solid #e2e8f0;
+            border-radius: 6px;
+            padding: 1rem;
+            min-width: 160px;
+            background-color: #ffffff;
+        }
+
+        .data-card .card-title {
+            font-size: 0.7rem;
+            font-weight: bold;
+            color: #718096;
+            text-transform: uppercase;
+            margin-bottom: 0.5rem;
+        }
+
+        .data-card .card-value {
+            font-size: 1.1rem;
+            font-weight: bold;
+            color: #000000;
+        }
+
+        /* Accordion / Folders Component */
+        .accordion-item {
+            border: 1px solid #e2e8f0;
+            border-radius: 4px;
+            margin-bottom: 0.5rem;
+            background-color: #ffffff;
+        }
+
+        .accordion-header {
+            padding: 0.75rem 1rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            cursor: pointer;
+            font-size: 0.85rem;
+            background-color: #ffffff;
+        }
+
+        .accordion-header:hover {
+            background-color: #f7fafc;
+        }
+
+        .accordion-icon {
+            font-size: 0.6rem;
+            color: #a0aec0;
+        }
+
+        /* Data list layouts (facturas) */
+        .invoice-list {
+            margin-top: 1rem;
+        }
+
+        .invoice-item {
+            border-bottom: 1px solid #edf2f7;
+            padding: 0.75rem 0.5rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-size: 0.8rem;
+        }
+
+        .invoice-info {
+            color: #4a5568;
+            line-height: 1.4;
+        }
+
+        .invoice-action {
+            color: #00695c;
+            cursor: pointer;
+            font-size: 1.1rem;
+            padding: 0 0.5rem;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="brand-header">Creador DeCA</div>
+
+    <div class="container">
+        <h1 class="panel-title">Panel de empresa / autónomo</h1>
+
+        <!-- Bloque del Código Generado -->
+        <div class="alert-box">
+            <div class="label-text">Código para vincular:</div>
+            <div class="code-text">8B67AE</div>
+            <div class="info-subtext">Facilita este código a tus conductores para asociar sus cuentas directamente a tu panel de control empresarial.</div>
+        </div>
+
+        <!-- Sección Alta de Transportistas -->
+        <div class="section-container">
+            <h2 class="section-title">Alta de transportistas para DeCA</h2>
+            <div class="section-subtitle">Introduce los datos requeridos para gestionar las autorizaciones de transporte asociadas.</div>
+            
+            <form action="#" method="POST" class="input-row">
+                <div class="input-group" style="flex: 1.5;">
+                    <label for="nombre">Nombre o razón social de la empresa</label>
+                    <input type="text" id="nombre" value="EMPRESA SL">
+                </div>
+                <div class="input-group">
+                    <label for="cif">CIF/NIF</label>
+                    <input type="text" id="cif" value="B12345678">
+                </div>
+                <div class="input-group">
+                    <label for="direccion">Dirección completa</label>
+                    <input type="text" id="direccion" placeholder="Calle, número, piso">
+                </div>
+                <div class="input-group">
+                    <label for="poblacion">Población</label>
+                    <input type="text" id="poblacion" placeholder="Municipio">
+                </div>
+                <div class="input-group">
+                    <label for="provincia">Provincia</label>
+                    <input type="text" id="provincia" placeholder="Provincia">
+                </div>
+                <div class="input-group">
+                    <label for="tipo">Tipo de empresa o conductor</label>
+                    <select id="tipo">
+                        <option>Gestor de Cooperativa</option>
+                        <option>Autónomo independiente</option>
+                        <option>Sociedad Limitada</option>
+                    </select>
+                </div>
+                <button type="submit" class="btn-teal">Guardar datos de la compañía</button>
+            </form>
+        </div>
+
+        <!-- Sección de Tarifas -->
+        <div class="section-container">
+            <h2 class="section-title">Tarifas de transporte</h2>
+            <div class="cards-row">
+                <div class="data-card">
+                    <div class="card-title">Tarifa Base</div>
+                    <div class="card-value">10,00 €</div>
+                </div>
+                <div class="data-card">
+                    <div class="card-title">Cuota Mensual</div>
+                    <div class="card-value">2,00 € <span style="font-size: 0.75rem; font-weight: normal; color: #718096;">/ cond.</span></div>
+                </div>
+            </div>
+
+            <!-- Desplegables de Configuración Adicional -->
+            <div class="accordion-item">
+                <div class="accordion-header">
+                    <span>Configuración de vehículos</span>
+                    <span class="accordion-icon">▼</span>
+                </div>
+            </div>
+            <div class="accordion-item">
+                <div class="accordion-header">
+                    <span>Zonas de cobertura de envío</span>
+                    <span class="accordion-icon">▼</span>
+                </div>
+            </div>
+            <div class="accordion-item">
+                <div class="accordion-header">
+                    <span>Zonas de cobertura de envío</span>
+                    <span class="accordion-icon">▼</span>
+                </div>
+            </div>
+            <div class="accordion-item">
+                <div class="accordion-header">
+                    <span>Horarios y asignación de rutas</span>
+                    <span class="accordion-icon">▼</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- Sección Facturas emitidas -->
+        <div class="section-container" style="margin-top: 2.5rem;">
+            <h2 class="section-title">Facturas emitidas</h2>
+            <div class="section-subtitle">Gestión, descarga de justificantes e historial de cargos mensuales del servicio.</div>
+
+            <!-- Formulario de nueva factura rápida -->
+            <form action="#" method="POST" class="input-row">
+                <div class="input-group">
+                    <label for="f_fecha">Fecha cargo</label>
+                    <input type="date" id="f_fecha" name="f_fecha" required>
+                </div>
+                <div class="input-group">
+                    <label for="f_concepto">Concepto descriptivo</label>
+                    <input type="text" id="f_concepto" name="f_concepto" placeholder="Ej. Renovación mensual..." required>
+                </div>
+                <div class="input-group">
+                    <label for="f_base">Base imp.</label>
+                    <input type="number" id="f_base" name="f_base" step="0.01" min="0" placeholder="0.00" required>
+                </div>
+                <div class="input-group">
+                    <label for="f_iva">Impuestos (IVA %)</label>
+                    <input type="number" id="f_iva" name="f_iva" step="1" min="0" placeholder="21">
+                </div>
+                <div class="input-group">
+                    <label for="f_total">Importe total cobrado</label>
+                    <input type="number" id="f_total" name="f_total" step="0.01" min="0" placeholder="0.00" required>
+                </div>
+                <div class="input-group btn-container">
+                    <button type="submit" class="btn-submit">Agregar recibo 📋</button>
+                </div>
+            </form>
+
+            <!-- Historial de Facturas (Contenedor para insertar dinámicamente) -->
+            <div id="lista-facturas" class="facturas-list" style="margin-top: 2rem;">
+                
+                <!-- Factura 001 -->
+                <div class="factura-item">
+                    <div class="factura-header">
+                        <strong>Factura #INV-2026-001</strong> | Fecha: 01/10/2026
+                    </div>
+                    <div class="factura-body">
+                        <p>Concepto: Renovación mensual de plataforma - Cobertura de flota activa</p>
+                    </div>
+                    <div class="factura-actions">
+                        <span>📋</span>
+                    </div>
+                </div>
+
+                <!-- Factura 002 -->
+                <div class="factura-item">
+                    <div class="factura-header">
+                        <strong>Factura #INV-2026-002</strong> | Fecha: 01/09/2026
+                    </div>
+                    <div class="factura-body">
+                        <p>Concepto: Cuota de alta inicial del sistema y configuración de licencias</p>
+                    </div>
+                    <div class="factura-actions">
+                        <span>📋</span>
+                    </div>
+                </div>
+
+            </div>
+        </div>
