@@ -45,7 +45,7 @@
         .register-card h1 {
             color: #000000;
             font-size: 2.2rem;
-            margin-bottom: 0.5rem;
+            margin-bottom: 1.5rem;
             font-weight: 500;
         }
 
@@ -53,31 +53,6 @@
             font-size: 0.8rem;
             color: #4a5568;
             margin-bottom: 1rem;
-        }
-
-        .toggle-container {
-            display: flex;
-            gap: 10px;
-            margin-bottom: 1.5rem;
-        }
-
-        .toggle-btn {
-            flex: 1;
-            padding: 0.5rem;
-            border: 1px solid #cbd5e0;
-            border-radius: 4px;
-            background-color: #ffffff;
-            cursor: pointer;
-            font-size: 0.85rem;
-            text-align: center;
-            text-decoration: none;
-            color: #000000;
-        }
-
-        .toggle-btn.active {
-            border-color: #00695c;
-            background-color: #f0fdf4;
-            font-weight: bold;
         }
 
         .form-group {
@@ -89,6 +64,12 @@
             margin-bottom: 0.4rem;
             color: #4a5568;
             font-size: 0.85rem;
+        }
+
+        .form-group label .required-asterisk {
+            color: #e53e3e;
+            font-weight: bold;
+            margin-left: 2px;
         }
 
         .form-group input[type="text"],
@@ -166,13 +147,7 @@
     <div class="brand-header">Creador DeCA</div>
 
     <div class="register-card">
-        <h1>Crear cuenta</h1>
-        <div class="subtitle">Tipo de cuenta</div>
-
-        <div class="toggle-container">
-            <a href="#" class="toggle-btn active">Conductor</a>
-            <a href="registro-empresa.html" class="toggle-btn">Empresa / Autónomo</a>
-        </div>
+        <h1>Crear cuenta Conductor</h1>
 
         <form action="#" method="POST">
             <div class="form-group">
@@ -191,15 +166,15 @@
             </div>
 
             <div class="checkbox-group">
-                <input type="checkbox" id="show-pass">
+                <input type="checkbox" id="show-pass" onchange="togglePasswordVisibility()">
                 <label for="show-pass">Mostrar contraseña</label>
             </div>
 
             <div class="form-group" style="margin-top: 1.5rem;">
-                <label for="codigo_empresa">Código de la empresa o autónomo</label>
-                <input type="text" id="codigo_empresa" name="codigo_empresa" placeholder="Código que le han facilitado">
+                <label for="codigo_empresa">Código de la empresa o autónomo<span class="required-asterisk">*</span></label>
+                <input type="text" id="codigo_empresa" name="codigo_empresa" placeholder="Introduce el código obligatorio" required>
                 <div class="info-text">
-                    Pide este código a la empresa o al autónomo para quien trabajas. Si trabajas por cuenta propia, selecciona «Empresa / Autónomo» en lugar de «Conductor». La cuota mensual corresponde a la empresa, no a cada conductor vinculado.
+                    Es obligatorio introducir el código facilitado por la empresa o autónomo para el que trabajas para poder completar el registro de tu cuenta de conductor.
                 </div>
             </div>
 
@@ -223,5 +198,16 @@
         </div>
     </div>
 
+    <script>
+        function togglePasswordVisibility() {
+            const passInput = document.getElementById('password');
+            const checkbox = document.getElementById('show-pass');
+            if (checkbox.checked) {
+                passInput.type = 'text';
+            } else {
+                passInput.type = 'password';
+            }
+        }
+    </script>
 </body>
 </html>
